@@ -213,3 +213,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#############
+## Zhuyun
+#############
+
+node_modules/
