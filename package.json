@@ -11,7 +11,7 @@
   "repository": "git://github.com/alenny/InterExam.git",
   "author": "Zhuyun DAI",
   "dependencies": {
-    "express": "4.4.x",
+    "express": "4.4.x"
   },
   "licenses": [
     {
