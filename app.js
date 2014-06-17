@@ -48,18 +48,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var server = app.listen('8888', function() {
-    // print all application settings
-    console.log('env: %s', app.get('env'));
-    console.log('trust proxy: %s', app.get('trust proxy'));
-    console.log('jsonp callback name: %s', app.get('jsonp callback name'));
-    console.log('json replacer: %s', app.get('json replacer'));
-    console.log('case sensitive routing: %s', app.get('case sensitive routing'));
-    console.log('strict routing: %s', app.get('strict routing'));
-    console.log('view cache: %s', app.get('view cache'));
-    console.log('view engine: %s', app.get('view engine'));
-    console.log('views: %s', app.get('views'));
+module.exports = app;
 
-    // print listening information
-    console.log('Listening on port %d ...', server.address().port);
-});
