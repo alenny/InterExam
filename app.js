@@ -2,51 +2,26 @@ var express = require('express');
 var connect = require('connect');
 var path = require('path');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// load local modules
+var errorHandle = require('./error-handle');
+var routes = require('./routes.js');
 
+// Create app
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// middlewares
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// set routes to app
+routes(app);
 
-/// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-/// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+// Must occurs at the end of all app.use(...) calls
+errorHandle(app);
 
 module.exports = app;
 
