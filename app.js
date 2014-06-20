@@ -3,8 +3,8 @@ var connect = require('connect');
 var path = require('path');
 
 // load local modules
-var errorHandle = require('./error-handle');
-var routes = require('./routes.js');
+var errorHandle = require('./errorHandle');
+var allRoutes = require('./allRoutes');
 
 // Create app
 var app = express();
@@ -18,7 +18,7 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set routes to app
-routes(app);
+allRoutes(app);
 
 // Must occurs at the end of all app.use(...) calls
 errorHandle(app);
