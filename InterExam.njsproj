@@ -56,7 +56,6 @@
     <Compile Include="app.js" />
     <Compile Include="config.js" />
     <Compile Include="errorHandle.js" />
-    <Compile Include="models\db.js" />
     <Compile Include="models\index.js" />
     <Compile Include="models\questionLibrary.js" />
     <Compile Include="models\user.js" />
