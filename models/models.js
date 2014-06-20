@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var config = require('../config');
 
-var dbUrl = 'mongodb://127.0.0.1/interexam';
+var dbUrl = 'mongodb://' + config.dbServer + '/' + config.dbName;
 mongoose.connect(dbUrl, function (err) {
     if (err) {
         console.error('connect to %s error: ', dbUrl, err);
