@@ -9,6 +9,13 @@ mongoose.connect(dbUrl, function (err) {
     }
 });
 
+// Close DB connection when process exit
+process.on('SIGINT', function () {
+    mongoose.connection.close(function () {
+        process.exit(0);
+    });
+});
+
 require('./user');
 require('./questionLibrary');
 

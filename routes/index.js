@@ -1,12 +1,11 @@
 var express = require('express');
-var models = require('../models/models');
-
-var QuestionLibrary = models.QuestionLibrary;
 var router = express.Router();
+var models = require('../models');
+var QuestionLibrary = models.QuestionLibrary;
 
 // GET home page
 router.get('/', function (req, res) {
-    QuestionLibrary.find({}, { name: 1 }, function(err, libs) {
+    QuestionLibrary.find({}, { name: 1, '_id': 0 }, function(err, libs) {
         if (err) {
             res.send(err);
         } else {

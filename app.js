@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var express = require('express');
 var connect = require('connect');
 var path = require('path');

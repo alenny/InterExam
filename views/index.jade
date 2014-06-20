@@ -5,5 +5,11 @@ block content
     p Choose an exam to take:
     ul
         each lib in libs
-            li= lib.name
+            li
+                a(href='/exam/#{lib.name}')= lib.name
+    p System management:
+    ul
+        li  
+            a(href='/users')
+                | All users
 
