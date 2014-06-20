@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var async = require('async');
-var models = require('../models/models');
+var models = require('../models');
 
 // Initial users
 var user = new models.User({
