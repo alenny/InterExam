@@ -10,7 +10,8 @@ var user = new models.User({
 
 // Initial question library - JavaScript
 var jsQuestionLibrary = new models.QuestionLibrary({
-    name: 'JavaScript'
+    name: 'javascript',
+    displayName: 'JavaScript'
 });
 jsQuestionLibrary.questions.push({
     content: 'Which are NOT JavaScript types?',
@@ -25,7 +26,8 @@ jsQuestionLibrary.questions.push({
 
 // Initial question library - C#
 var csQuestionLibrary = new models.QuestionLibrary({
-    name: 'C#'
+    name: 'csharp',
+    displayName: 'C#'
 });
 csQuestionLibrary.questions.push({
     content: 'Whose code can invoke an internal method of a public class A defined in ASM.dll?',

@@ -8,7 +8,8 @@ var QuestionSchema = new Schema({
 });
 
 var QuestionLibrarySchema = new Schema({
-    name: { type: String, unique: true },
+    name: { type: String, unique: true, index: true },
+    displayName: String,
     questions: [QuestionSchema]
 });
 

@@ -50,6 +50,7 @@
     <Content Include="README.md" />
     <Content Include="tools\launchEnv.cmd" />
     <Content Include="views\error.jade" />
+    <Content Include="views\exam.jade" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\users.jade" />
@@ -58,12 +59,14 @@
     <Compile Include="allRoutes.js" />
     <Compile Include="app.js" />
     <Compile Include="config.js" />
+    <Compile Include="controllers\exam.js" />
     <Compile Include="controllers\index.js" />
     <Compile Include="controllers\users.js" />
     <Compile Include="errorHandle.js" />
     <Compile Include="models\index.js" />
     <Compile Include="models\questionLibrary.js" />
     <Compile Include="models\user.js" />
+    <Compile Include="routes\exam.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="test\test.js" />
