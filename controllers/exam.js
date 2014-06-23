@@ -30,7 +30,12 @@ var parseUserAnswers = function(req) {
 };
 
 var compareArray = function (arr1, arr2) {
-    debugger;
+    if (!arr1 && !arr2) {
+        return true;
+    }
+    if (!arr1 || !arr2) {
+        return false;
+    }
     if (arr1.length !== arr2.length) {
         return false;
     }
