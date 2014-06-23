@@ -7,7 +7,7 @@ module.exports.index = function (req, res, next) {
         if (err) {
             next(err);
         } else {
-            res.render('exam', { title: lib.name + ' Exam', lib: lib });
+            res.render('exam', { title: lib.displayName + ' Exam', lib: lib });
         }
     });
 };
