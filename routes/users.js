@@ -1,17 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models');
-var User = models.User;
+var usersController = require('../controllers/users');
 
-/* GET users listing. */
-router.get('/', function (req, res) {
-    User.find({}, { '_id': 0 }, function (err, users) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.render('users', { title: 'InterExam', users: users });
-        }
-    });
+router.get('/', function (req, res, next) {
+    usersController.index(req, res, next);
 });
 
 module.exports = router;

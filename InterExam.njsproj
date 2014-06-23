@@ -31,11 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="models\" />
+    <Folder Include="controllers\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
+    <Folder Include="test\" />
+    <Folder Include="test\controllers\" />
     <Folder Include="tools\" />
     <Folder Include="views\" />
   </ItemGroup>
@@ -55,12 +58,15 @@
     <Compile Include="allRoutes.js" />
     <Compile Include="app.js" />
     <Compile Include="config.js" />
+    <Compile Include="controllers\index.js" />
+    <Compile Include="controllers\users.js" />
     <Compile Include="errorHandle.js" />
     <Compile Include="models\index.js" />
     <Compile Include="models\questionLibrary.js" />
     <Compile Include="models\user.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
+    <Compile Include="test\test.js" />
     <Compile Include="tools\initialSetup.js" />
     <Compile Include="tools\testAsync.js" />
   </ItemGroup>

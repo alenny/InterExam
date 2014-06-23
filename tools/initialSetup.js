@@ -8,18 +8,33 @@ var user = new models.User({
     password: '1234'
 });
 
-// Initial question libraries
-var questionLibrary = new models.QuestionLibrary({
+// Initial question library - JavaScript
+var jsQuestionLibrary = new models.QuestionLibrary({
     name: 'JavaScript'
 });
-questionLibrary.questions.push({
+jsQuestionLibrary.questions.push({
     content: 'Which are NOT JavaScript types?',
     answerCandidates: ['datetime', 'integer', 'string', 'boolean', 'function', 'object', 'undefined'],
     correctAnswerIndex: [0, 1]
 });
-questionLibrary.questions.push({
-    content: 'Which are NOT treated as falsy in JavaScript condition statements?',
+jsQuestionLibrary.questions.push({
+    content: 'Which are NOT treated as FALSY in JavaScript?',
     answerCandidates: ['\'false\'', 'null', 'undefined', '\'\' (an empty string)', '0', 'NaN'],
+    correctAnswerIndex: [0]
+});
+
+// Initial question library - C#
+var csQuestionLibrary = new models.QuestionLibrary({
+    name: 'C#'
+});
+csQuestionLibrary.questions.push({
+    content: 'Whose code can invoke an internal method of a public class A defined in ASM.dll?',
+    answerCandidates: ['Class B derived from A in ASM.dll', 'Class C in ASM.dll', 'Class D derived from A in REFD.dll', 'Class E in REFD.dll'],
+    correctAnswerIndex: [0, 1]
+});
+csQuestionLibrary.questions.push({
+    content: 'Where is new int[16000] allocated in the managed heap?',
+    answerCandidates: ['Generation 0', 'Generation 1', 'Generation 2', 'Large objects special area'],
     correctAnswerIndex: [0]
 });
 
@@ -71,7 +86,10 @@ conn.once('open', function () {
                     saveModel(user, callback);
                 },
                 function(callback) {
-                    saveModel(questionLibrary, callback);
+                    saveModel(jsQuestionLibrary, callback);
+                },
+                function (callback) {
+                    saveModel(csQuestionLibrary, callback);
                 }
             ], function() {
                 closeDbConnection(conn);
