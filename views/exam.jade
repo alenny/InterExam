@@ -2,11 +2,19 @@
 
 block content
     p (Note: one or multiple answers are correct for each question.)
-    each question, index in lib.questions
-        p= (index + 1) + '. ' + question.content
-        table
-            each answer in question.answerCandidates
-                tr
-                    td
-                        input(type='checkbox')
-                        span= answer
+    form(id='exam', action='/exam/#{lib.name}', method='post')
+        div.examArea
+        each question, questionIndex in lib.questions
+            p= (questionIndex + 1) + '. ' + question.content
+            table
+                each answer, answerIndex in question.answerCandidates
+                    tr
+                        td
+                            - var answerName = questionIndex + '_' + answerIndex
+                            input(type='checkbox', name= answerName)
+                            span= answer
+        div.nameArea
+        p Enter your name:
+            input(type='text', name='user')
+        div.buttonArea
+        input(type='submit', value='Submit')

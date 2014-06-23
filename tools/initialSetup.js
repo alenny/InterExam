@@ -20,7 +20,7 @@ jsQuestionLibrary.questions.push({
 });
 jsQuestionLibrary.questions.push({
     content: 'Which are NOT treated as FALSY in JavaScript?',
-    answerCandidates: ['\'false\'', 'null', 'undefined', '\'\' (an empty string)', '0', 'NaN'],
+    answerCandidates: ['\'false\'', 'null', 'undefined', '\'\' (an empty string)', '0', 'NaN', '[]'],
     correctAnswerIndex: [0]
 });
 

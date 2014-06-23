@@ -1,4 +1,3 @@
-var mongoose = require('mongoose');
 var express = require('express');
 var connect = require('connect');
 var path = require('path');
@@ -14,8 +13,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // middlewares
+app.use(connect.logger());
+app.use(connect.bodyParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(connect.static(path.join(__dirname, 'public')));
 
 // set routes to app
 allRoutes(app);
