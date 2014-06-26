@@ -1,7 +1,26 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 a {
-  color: #00b7ff;
+    color: #00b7ff;
+}
+
+.correct {
+    color: white;
+    background: blue;
+    font-weight: normal
+}
+
+.userCorrect {
+    color: white;
+    background: green;
+    font-weight: normal
+}
+
+.userWrong {
+    color: white;
+    background: red;
+    font-weight: normal
 }

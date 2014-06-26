@@ -18,7 +18,6 @@ app.set('view engine', 'jade');
 var logFileName = config.logFilePrefix + moment(new Date()).format('YY-MM-DD-HH-mm-ss') + '.log';
 app.use(connect.logger({ immediate: true, stream: fs.createWriteStream(logFileName) }));
 app.use(connect.bodyParser());
-app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(connect.static(path.join(__dirname, 'public')));
 
 // set routes to app

@@ -15,7 +15,7 @@ module.exports.index = function (req, res, next) {
 };
 
 var parseUserAnswers = function(req) {
-    var userAnswers = {};
+    var userAllAnswers = {};
     for (var key in req.body) {
         var matches = answerNamePattern.exec(key);
         if (!matches || req.body[key] !== 'on') {
@@ -23,10 +23,10 @@ var parseUserAnswers = function(req) {
         }
         var questionIndex = Number(matches[1]);
         var answerIndex = Number(matches[2]);
-        userAnswers[questionIndex] = userAnswers[questionIndex] || [];
-        userAnswers[questionIndex].push(answerIndex);
+        userAllAnswers[questionIndex] = userAllAnswers[questionIndex] || [];
+        userAllAnswers[questionIndex].push(answerIndex);
     }
-    return userAnswers;
+    return userAllAnswers;
 };
 
 var compareArray = function (arr1, arr2) {
@@ -47,22 +47,67 @@ var compareArray = function (arr1, arr2) {
     return true;
 };
 
+var inArray = function(n, arr) {
+    if (!arr) {
+        return false;
+    }
+    for (var i = 0; i < arr.length; ++i) {
+        if (n === arr[i]) {
+            return true;
+        }
+    }
+    return false;
+};
+
+// Available answer result: wrong, userCorrect, userWrong, correct
+var markAnswers = function (question, userAnswers) {
+    for (var i = 0; i < question.answerCandidates.length; ++i) {
+        var isCorrect = inArray(i, question.correctAnswerIndex);
+        var isUserSelected = inArray(i, userAnswers);
+        question.answerCandidates[i] = {
+            content: question.answerCandidates[i],
+        };
+        if (isCorrect && isUserSelected) {
+            question.answerCandidates[i].result = 'userCorrect';
+            continue;
+        }
+        if (isCorrect && !isUserSelected) {
+            question.answerCandidates[i].result = 'correct';
+            continue;
+        }
+        if (!isCorrect && isUserSelected) {
+            question.answerCandidates[i].result = 'userWrong';
+            continue;
+        }
+        question.answerCandidates[i].result = 'wrong';
+    }
+}
+
 module.exports.submit = function (req, res, next) {
     var examName = req.params.name;
     var userName = req.body.user;
-    var userAnswers = parseUserAnswers(req);
+    var userAllAnswers = parseUserAnswers(req);
     QuestionLibrary.findOne({ name: examName }, function (err, lib) {
         if (err) {
             next(err);
             return;
         } 
+        var examReport = lib;
         var correctAnswers = 0;
-        for (var i = 0; i < lib.questions.length; ++i) {
-            if (compareArray(lib.questions[i].correctAnswerIndex, userAnswers[i])) {
+        for (var i = 0; i < examReport.questions.length; ++i) {
+            var question = examReport.questions[i];
+
+            // Check if the answers of this question are correct
+            if (compareArray(question.correctAnswerIndex, userAllAnswers[i])) {
                 ++correctAnswers;
             }
+
+            // Mark the answer result
+            markAnswers(question, userAllAnswers[i]);
         }
-        var score = correctAnswers / lib.questions.length * 100;
-        res.render('examReport', { title: lib.displayName + ' Exam Report', user: userName, score: score });
+        var score = correctAnswers / examReport.questions.length * 100;
+        examReport.user = userName;
+        examReport.score = score;
+        res.render('examReport', { title: lib.displayName + ' Exam Report', examReport: examReport });
     });
 };

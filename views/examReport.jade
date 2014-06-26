@@ -1,6 +1,21 @@
 ﻿extends layout
 
 block content
-    p Your name: #{user}
-    p Your score: #{score} / 100
-    
+    p Your name: #{examReport.user}
+    p Your score: #{examReport.score} / 100
+    p Details:
+    ul
+        li
+            span.userCorrect Correct answer
+        li
+            span.userWrong Wrong answer
+        li        
+            span.correct Missed answer
+    each question, questionIndex in examReport.questions
+        p= (questionIndex + 1) + '. ' + question.content
+        table
+            each answer, answerIndex in question.answerCandidates
+                tr
+                    td
+                        span= '(' + String.fromCharCode('a'.charCodeAt() + answerIndex) + ') '
+                        span(class=answer.result)= answer.content
