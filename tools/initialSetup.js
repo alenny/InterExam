@@ -55,11 +55,16 @@ var handleDbResult = function (err, info, callback) {
     return ret;
 };
 
-// Create database
-var createDb = function(db, callback) {
-    db.dropDatabase(function(err) {
-        handleDbResult(err, 'dropping database', callback);
-    });
+// Clean database
+var cleanDb = function (db, callback) {
+    async.parallel([
+        function(cb) {
+            models.User.remove(cb);
+        },
+        function(cb) {
+            models.QuestionLibrary.remove(cb);
+        }
+    ], callback);
 };
 
 // Save a model instance
@@ -81,8 +86,8 @@ var conn = mongoose.connection;
 var db = conn.db;
 conn.once('open', function () {
     console.log('DB is connected.');
-    createDb(db, function(err) {
-        if (handleDbResult(err, 'creating database')) {
+    cleanDb(db, function (err) {
+        if (handleDbResult(err, 'cleaning database')) {
             async.parallel([
                 function(callback) {
                     saveModel(user, callback);
