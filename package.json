@@ -1,6 +1,6 @@
 {
   "name": "InterExam",
-  "version": "0.1.0",
+  "version": "0.1.0-6",
   "description": "Exams for interviewing programmers.",
   "repository": "git://github.com/alenny/InterExam.git",
   "author": "Zhuyun DAI",
@@ -22,6 +22,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "start": "supervisor app.js"
-  }
+    "start": "node app.js"
+  },
+  "subdomain": "interexam"
 }

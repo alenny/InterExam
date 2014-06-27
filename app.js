@@ -4,24 +4,24 @@ var path = require('path');
 var fs = require('fs');
 var moment = require('moment');
 var errorHandle = require('./errorHandle');
-var allRoutes = require('./allRoutes');
-var config = require('./config');
 
 // Create app
 var app = express();
+
+// Get configurations
+var config = require('./config')(app.get('env'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // middlewares
-var logFileName = config.logFilePrefix + moment(new Date()).format('YY-MM-DD-HH-mm-ss') + '.log';
-app.use(connect.logger({ immediate: true, stream: fs.createWriteStream(logFileName) }));
 app.use(connect.bodyParser());
 app.use(connect.static(path.join(__dirname, 'public')));
 
-// set routes to app
-allRoutes(app);
+app.get('/', function(req, res) {
+    res.send('hello all!');
+});
 
 // Error handlers must occur at the end of all app.use(...) calls
 errorHandle(app);
