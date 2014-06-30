@@ -99,7 +99,10 @@ module.exports.submit = function (req, res, next) {
 
             // Check if the answers of this question are correct
             if (compareArray(question.correctAnswerIndex, userAllAnswers[i])) {
+                question.result = 'correct';
                 ++correctAnswers;
+            } else {
+                question.result = 'wrong';
             }
 
             // Mark the answer result

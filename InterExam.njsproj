@@ -47,6 +47,7 @@
     <Content Include="package.json" />
     <Content Include="public\stylesheets\style.css" />
     <Content Include="README.md" />
+    <Content Include="test\test.html" />
     <Content Include="tools\launchEnv.cmd" />
     <Content Include="views\error.jade" />
     <Content Include="views\exam.jade" />

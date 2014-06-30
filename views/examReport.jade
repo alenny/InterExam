@@ -11,8 +11,11 @@ block content
             span.userWrong Wrong answer
         li        
             span.correct Missed answer
-    each question, questionIndex in examReport.questions
-        p= (questionIndex + 1) + '. ' + question.content
+    each question, questionIndex in examReport.questions        
+        - var picName = 
+        p
+            img.questionResult(src="/images/#{question.result}.png")
+            span= (questionIndex + 1) + '. ' + question.content
         table
             each answer, answerIndex in question.answerCandidates
                 tr

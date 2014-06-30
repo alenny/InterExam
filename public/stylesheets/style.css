@@ -24,3 +24,7 @@ a {
     background: red;
     font-weight: normal
 }
+img.questionResult {
+    width: 16px;
+    height: 16px;
+}
