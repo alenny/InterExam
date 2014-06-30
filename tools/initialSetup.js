@@ -25,8 +25,8 @@ jsQuestionLibrary.questions.push({
 });
 jsQuestionLibrary.questions.push({
     content: 'Which of the following code pieces have defined global variables?',
-    answerCandidates: ['var a = 3;', 'if (flag) { var a = 2; }', 'function myFunc () { var a = 1; }'],
-    correctAnswerIndex: [0, 1]
+    answerCandidates: ['var a = 3;', 'if (flag) { var a = 2; }', 'invokeFunc(function () { b = \'hello\'; });', 'function myFunc () { var a = 1; }'],
+    correctAnswerIndex: [0, 1, 2]
 });
 jsQuestionLibrary.questions.push({
     content: 'What\'s the result of "1.1 + 2 + \'3\' + 4"?',

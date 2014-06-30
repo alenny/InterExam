@@ -5,8 +5,12 @@ describe('Test code', function() {
     describe('Test method', function() {
         it('Any test', function () {
 
-            
-            assert.equal('3.134', 1.1 + 2 + '3' + 4);
+            function ba() {
+                b = 1;
+            }
+
+            ba();
+            assert.equal(1, b);
         });
     });
 });
