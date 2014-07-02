@@ -36,6 +36,8 @@
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
+    <Folder Include="public\javascripts\angularjs\" />
+    <Folder Include="public\javascripts\angularjs\1.2.19\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="test\" />
@@ -76,7 +78,7 @@
     <Compile Include="models\user.js" />
     <Compile Include="proxies\index.js" />
     <Compile Include="proxies\questionLibrary.js" />
-    <Compile Include="public\javascripts\angular.min.js" />
+    <Compile Include="public\javascripts\angularjs\1.2.19\angular.min.js" />
     <Compile Include="routes\eat.js" />
     <Compile Include="routes\exam.js" />
     <Compile Include="routes\index.js" />
