@@ -1,8 +1,14 @@
 ﻿extends layout
 
 block content
-    p All choices
-    ul
-        each restaurant in restaurants
-            li= restaurant.name
-                   
+    script(src='/javascripts/controllers/eat.js', language='javascript')
+    div(ng-controller='EatController')
+        p All choices:
+        table
+            tr(ng-repeat='restaurant in restaurants')
+                td - {{restaurant.name}}
+                td
+                    input(type='button', value='Remove', ng-click='removeRestaurant(restaurant._id)')
+        span My new recommendation:
+        input(type='text', ng-model='newRestaurantName')
+        input(type='button', value='Add', ng-click='addRestaurant()')  

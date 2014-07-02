@@ -38,6 +38,7 @@
     <Folder Include="public\javascripts\" />
     <Folder Include="public\javascripts\angularjs\" />
     <Folder Include="public\javascripts\angularjs\1.2.19\" />
+    <Folder Include="public\javascripts\controllers\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="test\" />
@@ -79,6 +80,8 @@
     <Compile Include="proxies\index.js" />
     <Compile Include="proxies\questionLibrary.js" />
     <Compile Include="public\javascripts\angularjs\1.2.19\angular.min.js" />
+    <Compile Include="public\javascripts\clientcontrollers\eat.js" />
+    <Compile Include="public\javascripts\controllers\eat.js" />
     <Compile Include="routes\eat.js" />
     <Compile Include="routes\exam.js" />
     <Compile Include="routes\index.js" />
