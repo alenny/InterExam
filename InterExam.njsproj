@@ -32,6 +32,7 @@
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="controllers\" />
+    <Folder Include="proxies\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
@@ -45,10 +46,13 @@
   <ItemGroup>
     <Content Include="LICENSE.md" />
     <Content Include="package.json" />
+    <Content Include="public\images\correct.png" />
+    <Content Include="public\images\wrong.png" />
     <Content Include="public\stylesheets\style.css" />
     <Content Include="README.md" />
     <Content Include="test\test.html" />
     <Content Include="tools\launchEnv.cmd" />
+    <Content Include="views\eat.jade" />
     <Content Include="views\error.jade" />
     <Content Include="views\exam.jade" />
     <Content Include="views\examReport.jade" />
@@ -60,13 +64,20 @@
     <Compile Include="allRoutes.js" />
     <Compile Include="app.js" />
     <Compile Include="config.js" />
+    <Compile Include="controllers\eat.js" />
     <Compile Include="controllers\exam.js" />
     <Compile Include="controllers\index.js" />
     <Compile Include="controllers\users.js" />
     <Compile Include="errorHandle.js" />
+    <Compile Include="models\examReport.js" />
     <Compile Include="models\index.js" />
     <Compile Include="models\questionLibrary.js" />
+    <Compile Include="models\restaurant.js" />
     <Compile Include="models\user.js" />
+    <Compile Include="proxies\index.js" />
+    <Compile Include="proxies\questionLibrary.js" />
+    <Compile Include="public\javascripts\angular.min.js" />
+    <Compile Include="routes\eat.js" />
     <Compile Include="routes\exam.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />

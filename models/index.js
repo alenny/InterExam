@@ -17,7 +17,9 @@ process.on('SIGINT', function () {
 
 require('./user');
 require('./questionLibrary');
+require('./restaurant');
 
 // exports models
 module.exports.User = mongoose.model('User');
 module.exports.QuestionLibrary = mongoose.model('QuestionLibrary');
+module.exports.Restaurant = mongoose.model('Restaurant');
