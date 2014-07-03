@@ -3,17 +3,22 @@
 block content
     script(src='/js/controllers/eat.js', language='javascript')
     div(ng-controller='EatController')
-        p 
-            label All choices:
-        table
-            tr(ng-repeat='restaurant in restaurants')
-                td - {{restaurant.name}}
-                td
-                    button(class='btn btn-default btn-sm', ng-click='removeRestaurant(restaurant._id)') Remove
-        p
-            label My new choice:
-            input(type='text', ng-model='newRestaurantName')
-            button(class='btn btn-default btn-sm', ng-click='addRestaurant()') Add
-        p
-            button(class='btn btn-default btn-sm', ng-click='recommendOne()') Recommend One for Me!!
-        h2 {{recommended.name}}
+        h2 All choices:
+        div.list-group
+            div.list-group-item(ng-repeat='restaurant in restaurants')
+                h3 
+                    span {{restaurant.name}}
+                    button(type='button', class='btn btn-default', ng-click='removeRestaurant(restaurant._id)') Remove
+                        //span(class='glyphicon glyphicon-remove') 
+                        //| &nbsp;Remove                
+        div.row
+            h2
+                span My new choice:
+                input(type='text', class='form-control input-lg', ng-model='newRestaurantName')
+                button(type='button', class='btn btn-default btn-lg', ng-click='addRestaurant()')
+                    span(class='glyphicon glyphicon-plus') 
+                    | &nbsp;Add
+        div.row
+            h2
+                button(type='button', class='btn btn-primary btn-lg', ng-click='recommendOne()') Recommend One for Me!!
+                label &nbsp;{{recommended.name}}

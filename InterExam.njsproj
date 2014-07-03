@@ -47,6 +47,7 @@
     <Folder Include="public\lib\bootstrap\3.2.0\css\" />
     <Folder Include="public\lib\bootstrap\3.2.0\fonts\" />
     <Folder Include="public\lib\bootstrap\3.2.0\js\" />
+    <Folder Include="public\lib\jquery\" />
     <Folder Include="routes\" />
     <Folder Include="test\" />
     <Folder Include="test\controllers\" />
@@ -69,6 +70,7 @@
     <Content Include="public\lib\bootstrap\3.2.0\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="public\lib\bootstrap\3.2.0\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="public\lib\bootstrap\3.2.0\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\lib\jquery\jquery-2.1.1.min.map" />
     <Content Include="README.md" />
     <Content Include="test\test.html" />
     <Content Include="tools\launchEnv.cmd" />
@@ -101,6 +103,7 @@
     <Compile Include="public\js\controllers\eat.js" />
     <Compile Include="public\lib\bootstrap\3.2.0\js\bootstrap.js" />
     <Compile Include="public\lib\bootstrap\3.2.0\js\bootstrap.min.js" />
+    <Compile Include="public\lib\jquery\jquery-2.1.1.min.js" />
     <Compile Include="routes\eat.js" />
     <Compile Include="routes\exam.js" />
     <Compile Include="routes\index.js" />
