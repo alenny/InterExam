@@ -1,5 +1,6 @@
 ﻿function EatController($scope, $http) {
     $scope.restaurants = [];
+    $scope.recommended = {};
     getAllRestaurants($scope, $http);
     $scope.addRestaurant = function() {
         if (!$scope.newRestaurantName) {
@@ -22,6 +23,13 @@
             getAllRestaurants($scope, $http);
         });
     };
+    $scope.recommendOne = function () {
+        if (!$scope.restaurants) {
+            return;
+        }
+        var idx = Math.floor(Math.random() * $scope.restaurants.length);
+        $scope.recommended = $scope.restaurants[idx];
+    };
 }
 
 function getAllRestaurants($scope, $http) {
@@ -32,3 +40,4 @@ function getAllRestaurants($scope, $http) {
         $scope.restaurants = data;
     });
 }
+

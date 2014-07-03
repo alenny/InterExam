@@ -1,14 +1,19 @@
 ﻿extends layout
 
 block content
-    script(src='/javascripts/controllers/eat.js', language='javascript')
+    script(src='/js/controllers/eat.js', language='javascript')
     div(ng-controller='EatController')
-        p All choices:
+        p 
+            label All choices:
         table
             tr(ng-repeat='restaurant in restaurants')
                 td - {{restaurant.name}}
                 td
-                    input(type='button', value='Remove', ng-click='removeRestaurant(restaurant._id)')
-        span My new recommendation:
-        input(type='text', ng-model='newRestaurantName')
-        input(type='button', value='Add', ng-click='addRestaurant()')  
+                    button(class='btn btn-default btn-sm', ng-click='removeRestaurant(restaurant._id)') Remove
+        p
+            label My new choice:
+            input(type='text', ng-model='newRestaurantName')
+            button(class='btn btn-default btn-sm', ng-click='addRestaurant()') Add
+        p
+            button(class='btn btn-default btn-sm', ng-click='recommendOne()') Recommend One for Me!!
+        h2 {{recommended.name}}
