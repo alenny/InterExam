@@ -29,6 +29,7 @@
         }
         var idx = Math.floor(Math.random() * $scope.restaurants.length);
         $scope.recommended = $scope.restaurants[idx];
+        $('#recommendedRestaurant').addClass('in');
     };
 }
 
@@ -37,7 +38,7 @@ function getAllRestaurants($scope, $http) {
         url: '/eat/restaurants',
         method: 'GET',
     }).success(function (data) {
-        $scope.restaurants = data;
+        $scope.restaurants = data.reverse();
     });
 }
 
