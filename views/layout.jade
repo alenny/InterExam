@@ -2,6 +2,7 @@ doctype html
 html(ng-app)
     head
         title= title
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
         link(rel='stylesheet', href='/lib/bootstrap/3.2.0/css/bootstrap.min.css')
         link(rel='stylesheet', href='/lib/bootstrap/3.2.0/css/bootstrap-theme.min.css')
         link(rel='stylesheet', href='/css/style.css')
@@ -9,8 +10,8 @@ html(ng-app)
         script(src='/lib/bootstrap/3.2.0/js/bootstrap.min.js', language='javascript')
         script(src='/lib/angularjs/1.2.19/angular.min.js', language='javascript')
         script(src='/lib/angular-busy/angular-busy.min.js', language='javascript')
-    body
-        nav(class='navbar navbar-default' role='navigation')
+    body.full-width
+        nav(class='navbar navbar-default navbar-fixed-top' role='navigation')
             div.container-fluid
                 div.navbar-header
                     button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-collapse')
@@ -23,6 +24,6 @@ html(ng-app)
                     ul(class='nav navbar-nav')
                         li
                             a(href='/') Home
-        div.container-fluid
-            h1= title
+        div(class='container-fluid full-width')
+            h3= title
             block content
