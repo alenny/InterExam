@@ -1,5 +1,8 @@
 body {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,31 +10,27 @@ a {
     color: #00b7ff;
 }
 
-.correct {
+.ie-correct {
     color: white;
     background: blue;
     font-weight: normal
 }
 
-.userCorrect {
+.ie-userCorrect {
     color: white;
     background: green;
     font-weight: normal
 }
 
-.userWrong {
+.ie-userWrong {
     color: white;
     background: red;
     font-weight: normal
 }
-img.questionResult {
+.ie-bigText {
+    font-size: 20px;
+}
+img.ie-questionResult {
     width: 16px;
     height: 16px;
-}
-.recommended {
-    font-size: 24px;
-}
-.full-width {
-    padding-left: 15px;
-    padding-right: 15px;
 }

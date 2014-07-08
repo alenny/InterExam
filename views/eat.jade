@@ -1,23 +1,25 @@
 ﻿extends layout
 
 block content
-    script(src='/js/controllers/eat.js', language='javascript')
-    div(ng-controller='EatController')
+    div.container-fluid(ng-controller='EatController')
+        div(class='row ie-bigText')
+            button(class='btn btn-primary btn-sm', ng-click='recommendOne()') 
+                span(class='glyphicon glyphicon-thumbs-up')
+                | &nbsp;Recommend One for Me!!
+            span &nbsp;
+            span(class='label label-success', ng-show='recommended.name') {{recommended.name}}                   
         div.row
-                button(class='btn btn-primary btn-sm', ng-click='recommendOne()') 
-                    span(class='glyphicon glyphicon-thumbs-up')
-                    | &nbsp;Recommend One for Me!!
-                &nbsp;
-                label(class='label label-success fade recommended', id='recommendedRestaurant') {{recommended.name}}                   
+            span &nbsp;
         div.row
-                label My new choice:
-                input(type='text', class='form-control input-md', ng-model='newRestaurantName')
-                button(class='btn btn-default btn-md', busy, ng-click='addRestaurant()')
+            div.input-group
+                input(type='text', class='form-control input-sm', placeholder='Input new choice here', ng-model='newRestaurantName')
+                span(class='input-group-addon btn btn-default', ng-click='addRestaurant()')
                     span(class='glyphicon glyphicon-plus')
                     | &nbsp;Add
         div.row
-            label All choices:
-        div.list-group
-            div.list-group-item(ng-repeat='restaurant in restaurants')
-                label {{restaurant.name}}
-                button(class='btn btn-default pull-right', ng-click='removeRestaurant(restaurant._id)') Remove
+            h4 All choices:
+        div(ng-class='restaurant.styleClass', role='alert', ng-repeat='restaurant in restaurants') {{restaurant.name}}
+            button(type='button', class='close', data-dismiss='alert', ng-click='removeRestaurant(restaurant._id)')
+                span(aria-hidden='true') &times;
+                span(class="sr-only") Remove
+    script(src='/js/controllers/eat.js', language='javascript')

@@ -6,19 +6,19 @@ block content
     p Details:
     ul
         li
-            span.userCorrect Correct answer
+            span.ie-userCorrect Correct answer
         li
-            span.userWrong Wrong answer
+            span.ie-userWrong Wrong answer
         li        
-            span.correct Missed answer
+            span.ie-correct Missed answer
     each question, questionIndex in examReport.questions        
-        - var picName = 
         p
-            img.questionResult(src="/images/#{question.result}.png")
+            img.ie-questionResult(src="/images/#{question.result}.png")
             span= (questionIndex + 1) + '. ' + question.content
         table
             each answer, answerIndex in question.answerCandidates
                 tr
                     td
                         span= '(' + String.fromCharCode('a'.charCodeAt() + answerIndex) + ') '
-                        span(class=answer.result)= answer.content
+                        - var resultClass = 'ie-' + answer.result
+                        span(class=resultClass)= answer.content

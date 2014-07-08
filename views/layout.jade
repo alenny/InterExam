@@ -1,5 +1,5 @@
 doctype html
-html(ng-app)
+html(ng-app='ieApp')
     head
         title= title
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
@@ -10,7 +10,7 @@ html(ng-app)
         script(src='/lib/bootstrap/3.2.0/js/bootstrap.min.js', language='javascript')
         script(src='/lib/angularjs/1.2.19/angular.min.js', language='javascript')
         script(src='/lib/angular-busy/angular-busy.min.js', language='javascript')
-    body.full-width
+    body
         nav(class='navbar navbar-default navbar-fixed-top' role='navigation')
             div.container-fluid
                 div.navbar-header
@@ -24,6 +24,5 @@ html(ng-app)
                     ul(class='nav navbar-nav')
                         li
                             a(href='/') Home
-        div(class='container-fluid full-width')
-            h3= title
-            block content
+        h3= title
+        block content
