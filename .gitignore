@@ -221,4 +221,3 @@ pip-log.txt
 node_modules/
 logs/
 config.js
-.ntvs_analysis.dat
