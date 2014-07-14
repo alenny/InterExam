@@ -2,7 +2,7 @@
 var Restaurant = models.Restaurant;
 
 module.exports.index = function(req, res, next) {
-    Restaurant.find({}, function(err, restaurants) {
+    Restaurant.getAll(function(err, restaurants) {
         if (err) {
             next(err);
             return;
@@ -12,7 +12,7 @@ module.exports.index = function(req, res, next) {
 };
 
 module.exports.getAllRestaurants = function(req, res, next) {
-    Restaurant.find({}, function (err, restaurants) {
+    Restaurant.getAll(function (err, restaurants) {
         if (err) {
             next(err);
             return;

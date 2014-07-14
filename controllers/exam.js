@@ -5,7 +5,7 @@ var answerNamePattern = /^(\d+)_(\d+)$/;
 
 module.exports.index = function (req, res, next) {
     var examName = req.params.name;
-    QuestionLibrary.findOne({ name: examName }, function(err, lib) {
+    QuestionLibrary.findByName(examName, function(err, lib) {
         if (err) {
             next(err);
         } else {
@@ -60,7 +60,7 @@ var inArray = function(n, arr) {
 };
 
 // Available answer result: wrong, userCorrect, userWrong, correct
-var markAnswers = function (question, userAnswers) {
+var markAnswers = function(question, userAnswers) {
     for (var i = 0; i < question.answerCandidates.length; ++i) {
         var isCorrect = inArray(i, question.correctAnswerIndex);
         var isUserSelected = inArray(i, userAnswers);
@@ -81,13 +81,13 @@ var markAnswers = function (question, userAnswers) {
         }
         question.answerCandidates[i].result = 'wrong';
     }
-}
+};
 
 module.exports.submit = function (req, res, next) {
     var examName = req.params.name;
     var userName = req.body.user;
     var userAllAnswers = parseUserAnswers(req);
-    QuestionLibrary.findOne({ name: examName }, function (err, lib) {
+    QuestionLibrary.findByName(examName, function (err, lib) {
         if (err) {
             next(err);
             return;

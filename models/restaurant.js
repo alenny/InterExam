@@ -6,4 +6,8 @@ var RestaurantSchema = new Schema({
     hits: { type: Number }
 });
 
+RestaurantSchema.statics.getAll = function(cb) {
+    this.find({}, cb);
+};
+
 mongoose.model('Restaurant', RestaurantSchema);
