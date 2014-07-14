@@ -37,7 +37,6 @@
     <Folder Include="public\js\" />
     <Folder Include="public\lib\angularjs\" />
     <Folder Include="public\lib\angularjs\1.2.19\" />
-    <Folder Include="public\lib\angularui\" />
     <Folder Include="public\js\controllers\" />
     <Folder Include="public\lib\" />
     <Folder Include="public\css\" />
@@ -59,6 +58,7 @@
     <Content Include="public\images\correct.png" />
     <Content Include="public\images\wrong.png" />
     <Content Include="public\css\style.css" />
+    <Content Include="public\lib\angularjs\1.2.19\angular.min.js.map" />
     <Content Include="public\lib\bootstrap\3.2.0\css\bootstrap-theme.css" />
     <Content Include="public\lib\bootstrap\3.2.0\css\bootstrap-theme.css.map" />
     <Content Include="public\lib\bootstrap\3.2.0\css\bootstrap-theme.min.css" />
@@ -93,11 +93,11 @@
     <Compile Include="errorHandle.js" />
     <Compile Include="models\examReport.js" />
     <Compile Include="models\index.js" />
+    <Compile Include="models\managerCode.js" />
     <Compile Include="models\questionLibrary.js" />
     <Compile Include="models\restaurant.js" />
     <Compile Include="models\user.js" />
     <Compile Include="public\lib\angularjs\1.2.19\angular.min.js" />
-    <Compile Include="public\lib\angularui\ui-bootstrap-tpls-0.11.0.min.js" />
     <Compile Include="public\js\controllers\eat.js" />
     <Compile Include="public\lib\bootstrap\3.2.0\js\bootstrap.js" />
     <Compile Include="public\lib\bootstrap\3.2.0\js\bootstrap.min.js" />
@@ -108,6 +108,7 @@
     <Compile Include="routes\users.js" />
     <Compile Include="test\test.js" />
     <Compile Include="tools\initialSetup.js" />
+    <Compile Include="tools\addManagerCode.js" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
   <ProjectExtensions>

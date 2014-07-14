@@ -1,8 +1,10 @@
 var express = require('express');
-var connect = require('connect');
 var path = require('path');
 var fs = require('fs');
 var moment = require('moment');
+var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
+var serveStatic = require('serve-static');
 var errorHandle = require('./errorHandle');
 var allRoutes = require('./allRoutes');
 var config = require('./config');
@@ -20,8 +22,10 @@ app.set('view engine', 'jade');
 // middlewares
 //var logFileName = path.join(__dirname, 'logs/interexam_' + moment(new Date()).format('YY-MM-DD-HH-mm-ss') + '.log');
 //app.use(connect.logger({ immediate: true, stream: fs.createWriteStream(logFileName) }));
-app.use(connect.bodyParser());
-app.use(connect.static(path.join(__dirname, 'public')));
+app.use(cookieSession({ keys: ['hello'] }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(serveStatic(path.join(__dirname, 'public')));
 
 // set routes to app
 allRoutes(app);

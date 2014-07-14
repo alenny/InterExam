@@ -10,7 +10,15 @@ block content
             span(class='label label-success', ng-show='recommended.name') {{recommended.name}}                   
         div.row
             span &nbsp;
-        div.row
+        div.row(ng-hide='isManager')
+            div.input-group
+                input(type='text', class='form-control input-sm', placeholder='Do you have manager code?', ng-model='managerCode')
+                span(class='input-group-addon btn btn-default', ng-click='verifyManagerCode()')
+                    span(class='glyphicon glyphicon-user')
+                    | &nbsp;Verify
+        div.row(ng-show='isManagerCodeInvalid')
+            span(class='label label-danger') Incorrect manager code.
+        div.row(ng-show='isManager')
             div.input-group
                 input(type='text', class='form-control input-sm', placeholder='Input new choice here', ng-model='newRestaurantName')
                 span(class='input-group-addon btn btn-default', ng-click='addRestaurant()')
@@ -19,7 +27,7 @@ block content
         div.row
             h4 All choices:
         div(ng-class='restaurant.styleClass', role='alert', ng-repeat='restaurant in restaurants') {{restaurant.name}}
-            button(type='button', class='close', data-dismiss='alert', ng-click='removeRestaurant(restaurant._id)')
+            button(type='button', class='close', data-dismiss='alert', ng-show='isManager', ng-click='removeRestaurant(restaurant._id)')
                 span(aria-hidden='true') &times;
                 span(class="sr-only") Remove
     script(src='/js/controllers/eat.js', language='javascript')

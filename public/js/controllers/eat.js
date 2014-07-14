@@ -3,6 +3,8 @@
 appModule.controller('EatController', function($scope, $http) {
     $scope.restaurants = [];
     $scope.recommended = {};
+    $scope.isManager = false;
+    $scope.isManagerCodeInvalid = false;
 
     var classes = ['alert-success', 'alert-warning', 'alert-info', 'alert-danger'];    
     
@@ -10,10 +12,19 @@ appModule.controller('EatController', function($scope, $http) {
         return 'alert ' + classes[idx % classes.length];
     }
     
+    function checkIsManager() {
+        $http({
+            url: '/eat/ismanager',
+            method: 'GET'
+        }).success(function(data) {
+            $scope.isManager = data['result'];
+        });
+    }
+
     function getAllRestaurants() {
         $http({
             url: '/eat/restaurants',
-            method: 'GET',
+            method: 'GET'
         }).success(function (data) {
             $scope.restaurants = data.reverse();
             for (var i = 0; i < $scope.restaurants.length; ++i) {
@@ -21,6 +32,20 @@ appModule.controller('EatController', function($scope, $http) {
             }
         });
     }
+
+    $scope.verifyManagerCode = function() {
+        if (!$scope.managerCode) {
+            return;
+        }
+        $http({
+            url: '/eat/verifymanagercode/' + $scope.managerCode,
+            method: 'GET'
+        }).success(function(data) {
+            $scope.isManager = data['result'];
+            $scope.isManagerCodeInvalid = !data['result'];
+        });
+        $scope.managerCode = '';
+    };
         
     $scope.addRestaurant = function () {
         if (!$scope.newRestaurantName) {
@@ -52,6 +77,7 @@ appModule.controller('EatController', function($scope, $http) {
         var idx = Math.floor(Math.random() * $scope.restaurants.length);
         $scope.recommended = $scope.restaurants[idx];
     };
-    
+
+    checkIsManager();
     getAllRestaurants();
 });

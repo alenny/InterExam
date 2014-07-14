@@ -18,4 +18,12 @@ router.delete('/restaurants/:_id', function(req, res, next) {
     eatController.removeRestaurant(req, res, next);
 });
 
+router.get('/verifymanagercode/:managerCode', function(req, res, next) {
+    eatController.verifyManagerCode(req, res, next);
+});
+
+router.get('/ismanager', function(req, res) {
+    eatController.checkIsManager(req, res);
+});
+
 module.exports = router;

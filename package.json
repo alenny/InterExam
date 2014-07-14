@@ -1,12 +1,15 @@
 {
   "name": "InterExam",
-  "version": "0.1.0-16",
+  "version": "0.1.0-17",
   "description": "Exams for interviewing programmers.",
   "repository": "git://github.com/alenny/InterExam.git",
   "author": "Zhuyun DAI",
   "dependencies": {
     "express": "~4.4.0",
-    "connect": "~2.19.0",
+    "connect": "~3.0.0",
+    "cookie-session": "~1.0.0",
+    "body-parser": "~1.4.0",
+    "serve-static": "~1.3.0",
     "jade": "~1.3.0",
     "mongoose": "~3.8.0",
     "async": "~0.9.0",
